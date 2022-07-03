@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="min-width: extend-to-zoom; max-width: 100vw;, initial-scale=1.0, user-scalable">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -39,7 +39,9 @@
       <a target="_blank" href="https://twitter.com/AriaBelmonde" class="btn3 btn-gradient3">Twitter</a>
       <br><br>
 
-    <!-- Add a placeholder for the Twitch embed -->
+
+<div class="responsive">
+<!-- Add a placeholder for the Twitch embed -->
 <div id="twitch-embed"></div>
 
 <!-- Load the Twitch embed script -->
@@ -48,11 +50,11 @@
 <!-- Create a Twitch.Player object. This will render within the placeholder div -->
 <script type="text/javascript">
   new Twitch.Player("twitch-embed", {
-    width: 854,
-    height: 480,
     channel: "ariabelmonde"
   });
 </script>
+
+</div>
 
     </aside>
   </body>
