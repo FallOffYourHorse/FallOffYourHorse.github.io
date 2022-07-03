@@ -26,47 +26,34 @@
         <h1>
                 Aria Belmonde
               </h1>
-    
-        <!-- and role or location -->
-        <h2>
-                EN Vtuber
-              </h2>
-    
       </header>
     
       <!-- bit of a bio; who are you? -->
-      <div class="profile-bio">
-    
-        <p>
-        Deez nuts
-        </p>
+      <div class="profile-bio">       
     
       </div>
-    
-      <!-- some social links to show off 
-      <ul class="profile-social-links">
-        <li>
-          <a target="_blank" href="https://twitch.tv/AriaBelmonde">
-            <img src="/imgs/Discord.png" class="fa fa-facebook"></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://twitter.com/dropyourbass">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://github.com/vipulsaxena">
-            <i class="fa fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://www.behance.net/vipulsaxena">
-           
-            <i class="fa fa-behance"></i>
-          </a>
-        </li>
-      </ul> -->
+      <p>deez nuts</p>
+
+      <a target="_blank" href="https://twitch.tv/AriaBelmonde" class="btn btn-gradient">Twitch</a>
+      <a target="_blank" href="https://discord.gg/dqS2Ff3BMQ" class="btn2 btn-gradient2">Discord</a>
+      <a target="_blank" href="https://twitter.com/AriaBelmonde" class="btn3 btn-gradient3">Twitter</a>
+      <br><br>
+
+    <!-- Add a placeholder for the Twitch embed -->
+<div id="twitch-embed"></div>
+
+<!-- Load the Twitch embed script -->
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+<!-- Create a Twitch.Player object. This will render within the placeholder div -->
+<script type="text/javascript">
+  new Twitch.Player("twitch-embed", {
+    width: 854,
+    height: 480,
+    channel: "ariabelmonde"
+  });
+</script>
+
     </aside>
   </body>
 </html>
