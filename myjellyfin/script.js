@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const dashboard = document.getElementById("dashboard");
     const discordName = document.getElementById("discord-name");
     const jellyfinName = document.getElementById("jellyfin-name");
+    const avatar = document.getElementById("avatar");
   
     try {
       const res = await fetch("/api/auth/user", { credentials: "include" });
@@ -12,9 +13,14 @@ window.addEventListener("DOMContentLoaded", async () => {
       authSection.style.display = "none";
       dashboard.style.display = "block";
   
-      discordName.textContent = user.username + "#" + user.discriminator;
+      discordName.textContent = `${user.username}#${user.discriminator}`;
   
-      // 👇 Optional: fetch linked Jellyfin account
+      if (avatar) {
+        avatar.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+        avatar.alt = `${user.username}'s avatar`;
+      }
+  
+      // Optional: fetch linked Jellyfin account
       const jfRes = await fetch(`/api/jellyfin/user/${user.id}`);
       const jfUser = await jfRes.json();
       jellyfinName.textContent = jfUser.username || "Not linked";
