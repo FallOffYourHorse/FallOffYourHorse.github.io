@@ -4,23 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Jellyfin Dashboard</title>
-  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
     <h1>My Jellyfin Dashboard</h1>
 
-    <div id="auth-section">
+    <!-- Login Section -->
+    <div id="auth-section" style="text-align: center;">
       <p>Please log in with Discord to continue.</p>
-      <a href="https://YOUR_AUTH_SERVER/oauth/discord">
+      <a href="35.193.16.90:3001/api/auth/discord">
         <button id="login">Login with Discord</button>
       </a>
     </div>
 
+    <!-- Dashboard Section (shown after login) -->
     <div id="dashboard" style="display:none;">
       <h2>Welcome, <span id="discord-name"></span>!</h2>
-      <p>Linked Jellyfin account: <strong id="jellyfin-name"></strong></p>
+      <p>Linked Jellyfin account: <strong id="jellyfin-name">Loading...</strong></p>
+
+      <button onclick="logout()">Log Out</button>
     </div>
   </div>
 </body>
