@@ -32,18 +32,31 @@
       </div>
   
       <!-- Dashboard Section -->
-      <div id="dashboard" style="display:none;">
+      <div id="dashboard" style="display: none">
         <div class="text-center mb-4">
           <img id="avatar" class="rounded-circle" width="80" />
           <h2 class="mt-3">Welcome, <span id="discord-name"></span>!</h2>
-          <p>Linked Jellyfin account: <strong id="jellyfin-name">Loading...</strong></p>
+          <p>
+            Linked Jellyfin account:
+            <strong id="jellyfin-name">Loading...</strong>
+          </p>
         </div>
-  
-        <div id="linkJellyfinWrapper" class="text-center" style="display: none;">
-          <input type="text" id="jellyfin-username" class="form-control w-50 mx-auto mb-2" placeholder="Enter Jellyfin username">
-          <button onclick="linkJellyfinAccount()" class="btn btn-success">Link Your Jellyfin Account</button>
+      
+        <!-- 👇 Jellyfin linking form -->
+        <div id="linkJellyfinWrapper" class="text-center" style="display: none">
+          <p class="text-warning">You haven't linked your Jellyfin account yet.</p>
+          <input
+            type="text"
+            id="jellyfin-username"
+            class="form-control w-50 mx-auto mb-2"
+            placeholder="Enter your Jellyfin username"
+          />
+          <button onclick="linkJellyfinAccount()" class="btn btn-success">
+            Link Jellyfin Account
+          </button>
+          <div id="linkStatus" class="mt-2"></div>
         </div>
-  
+      
         <div class="text-center mt-4">
           <button onclick="logout()" class="btn btn-outline-light">Log Out</button>
         </div>

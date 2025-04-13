@@ -45,7 +45,34 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
   
   // Optional: You can wire this into a command or redirect
-  function linkJellyfinAccount() {
+/*   function linkJellyfinAccount() {
     window.location.href = "https://discord.com/channels/your-server-id/your-channel-id"; // or trigger a bot DM or command
-  }
+  } */
   
+  async function linkJellyfinAccount() {
+    const input = document.getElementById("jellyfin-username");
+    const status = document.getElementById("linkStatus");
+    const username = input.value.trim();
+    if (!username) {
+      status.innerHTML = `<div class="alert alert-warning">Please enter a username.</div>`;
+      return;
+    }
+
+    const res = await fetch("/api/jellyfin/link", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username }),
+    });
+
+    if (res.ok) {
+      status.innerHTML = `<div class="alert alert-success">✅ Linked successfully!</div>`;
+      document.getElementById("jellyfin-name").textContent = username;
+      document.getElementById("linkJellyfinWrapper").style.display = "none";
+    } else {
+      const msg = await res.text();
+      status.innerHTML = `<div class="alert alert-danger">❌ ${msg}</div>`;
+    }
+  }
