@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const discordName = document.getElementById("discord-name");
     const jellyfinName = document.getElementById("jellyfin-name");
     const avatar = document.getElementById("avatar");
+    const linkJellyfinWrapper = document.getElementById("linkJellyfinWrapper");
   
     try {
       const res = await fetch("/api/auth/user", { credentials: "include" });
@@ -20,10 +21,17 @@ window.addEventListener("DOMContentLoaded", async () => {
         avatar.alt = `${user.username}'s avatar`;
       }
   
-      // Optional: fetch linked Jellyfin account
+      // Fetch linked Jellyfin account
       const jfRes = await fetch(`/api/jellyfin/user/${user.id}`);
       const jfUser = await jfRes.json();
-      jellyfinName.textContent = jfUser.username || "Not linked";
+  
+      if (jfUser && jfUser.username) {
+        jellyfinName.textContent = jfUser.username;
+        linkJellyfinWrapper.style.display = "none";
+      } else {
+        jellyfinName.textContent = "Not linked";
+        linkJellyfinWrapper.style.display = "block";
+      }
   
     } catch (err) {
       authSection.style.display = "block";
@@ -34,5 +42,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   function logout() {
     fetch("/api/auth/logout", { credentials: "include" })
       .then(() => location.reload());
+  }
+  
+  // Optional: You can wire this into a command or redirect
+  function linkJellyfinAccount() {
+    window.location.href = "https://discord.com/channels/your-server-id/your-channel-id"; // or trigger a bot DM or command
   }
   

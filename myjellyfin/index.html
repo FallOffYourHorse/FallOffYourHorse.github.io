@@ -20,13 +20,18 @@
     </div>
 
     <!-- Dashboard Section (shown after login) -->
-    <div id="dashboard" style="display:none;">
-      <img id="avatar" alt="Discord avatar" width="80" style="border-radius: 50%; margin-bottom: 1rem;" />
-      <h2>Welcome, <span id="discord-name"></span>!</h2>
-      <p>Linked Jellyfin account: <strong id="jellyfin-name">Loading...</strong></p>
+<div id="dashboard" style="display:none;">
+  <img id="avatar" alt="Discord avatar" width="80" style="border-radius: 50%; margin-bottom: 1rem;" />
+  <h2>Welcome, <span id="discord-name"></span>!</h2>
+  <p>Linked Jellyfin account: <strong id="jellyfin-name">Loading...</strong></p>
 
-      <button onclick="logout()">Log Out</button>
-    </div>
+  <div id="linkJellyfinWrapper" style="margin-top: 1rem; display: none;">
+    <button onclick="linkJellyfinAccount()">Link Your Jellyfin Account</button>
+  </div>
+
+  <button onclick="logout()">Log Out</button>
+</div>
+
   </div>
 </body>
 </html>
