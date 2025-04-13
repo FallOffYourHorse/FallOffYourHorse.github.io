@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Jellyfin Dashboard</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>My Jellyfin Dashboard</h1>
+
+    <div id="auth-section">
+      <p>Please log in with Discord to continue.</p>
+      <a href="https://YOUR_AUTH_SERVER/oauth/discord">
+        <button id="login">Login with Discord</button>
+      </a>
+    </div>
+
+    <div id="dashboard" style="display:none;">
+      <h2>Welcome, <span id="discord-name"></span>!</h2>
+      <p>Linked Jellyfin account: <strong id="jellyfin-name"></strong></p>
+    </div>
+  </div>
+</body>
+</html>
