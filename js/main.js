@@ -1,3 +1,6 @@
+console.log("dashboard main.js loaded");
+
+// Cards config (edit this)
 const cards = [
   {
     title: "Jellyfin",
@@ -57,18 +60,20 @@ const cards = [
   },
 ];
 
+// Elements
 const $grid = document.getElementById("grid");
 const $empty = document.getElementById("empty");
 const $search = document.getElementById("search");
 const $tag = document.getElementById("tagFilter");
-// const $layout = document.getElementById("layoutToggle");
-document.getElementById("year").textContent = new Date().getFullYear();
+const $year = document.getElementById("year");
+if ($year) $year.textContent = new Date().getFullYear();
 
+// Helpers
 function uniqTags(list) {
   return Array.from(new Set(list.flatMap((c) => c.tags || []))).sort();
 }
-
 function buildTagFilter() {
+  if (!$tag) return;
   for (const t of uniqTags(cards)) {
     const o = document.createElement("option");
     o.value = t;
@@ -79,38 +84,35 @@ function buildTagFilter() {
 
 function cardHTML(c) {
   const host = c.url.replace(/^https?:\/\//, "");
-  const logo = c.logo
-    ? `<div class="app-icon"><img src="${c.logo}" alt="${
-        c.title
-      } logo" onerror="this.closest('.app-icon').dataset.fallback='${(
-        c.initials || c.title.slice(0, 2)
-      ).toUpperCase()}'"></div>`
+  const icon = c.logo
+    ? `<div class="app-icon"><img src="${c.logo}" alt="${c.title} logo"></div>`
     : `<div class="app-icon" data-fallback="${(
         c.initials || c.title.slice(0, 2)
       ).toUpperCase()}"></div>`;
   return `
-        <a class="app-card" href="${c.url}" target="_blank" rel="noopener">
-          <span class="app-sheen" aria-hidden="true"></span>
-          ${logo}
-          <div class="app-meta">
-            <h2 class="app-title">${c.title}</h2>
-            <div class="app-host">${host}</div>
-            <p class="app-desc">${c.desc || ""}</p>
-            ${
-              c.tags?.length
-                ? `<div class="tags">${c.tags
-                    .map((t) => `<span class='tag'>${t}</span>`)
-                    .join("")}</div>`
-                : ""
-            }
-          </div>
-        </a>`;
+    <a class="app-card" href="${c.url}" target="_blank" rel="noopener">
+      <span class="app-sheen" aria-hidden="true"></span>
+      ${icon}
+      <div class="app-meta">
+        <h2 class="app-title">${c.title}</h2>
+        <div class="app-host">${host}</div>
+        <p class="app-desc">${c.desc || ""}</p>
+        ${
+          c.tags?.length
+            ? `<div class="tags">${c.tags
+                .map((t) => `<span class='tag'>${t}</span>`)
+                .join("")}</div>`
+            : ""
+        }
+      </div>
+    </a>`;
 }
 
 function render() {
+  if (!$grid) return;
   $grid.innerHTML = "";
-  const q = $search.value.trim().toLowerCase();
-  const tg = $tag.value;
+  const q = $search ? $search.value.trim().toLowerCase() : "";
+  const tg = $tag ? $tag.value : "";
   const filtered = cards.filter((c) => {
     const hay = `${c.title} ${c.url} ${c.desc || ""} ${(c.tags || []).join(
       " "
@@ -124,25 +126,12 @@ function render() {
     w.innerHTML = cardHTML(c);
     $grid.appendChild(w.firstElementChild);
   });
-  $empty.hidden = filtered.length > 0;
+  if ($empty) $empty.hidden = filtered.length > 0;
 }
 
-// function toggleLayout() {
-//   document.documentElement.classList.toggle("compact");
-//   const on = document.documentElement.classList.contains("compact");
-//   $layout.setAttribute("aria-pressed", on ? "true" : "false");
-//   $layout.textContent = on ? "Comfortable" : "Compact";
-// }
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "/" && document.activeElement !== $search) {
-    e.preventDefault();
-    $search.focus();
-  }
-});
-$search.addEventListener("input", render);
-$tag.addEventListener("change", render);
-// $layout.addEventListener("click", toggleLayout);
+// Wire up
+if ($search) $search.addEventListener("input", render);
+if ($tag) $tag.addEventListener("change", render);
 
 buildTagFilter();
 render();

@@ -7,17 +7,15 @@
   --ring: 220 90% 60%;
   --radius: 18px;
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     --bg: #f6f7fb;
-    --card: white;
+    --card: #fff;
     --card-2: #f4f6fb;
     --text: #101114;
     --muted: #5b6070;
   }
 }
-
 * {
   box-sizing: border-box;
 }
@@ -42,12 +40,10 @@ body {
   font: 400 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial;
 }
-
 .wrap {
   width: min(1100px, 92vw);
   margin-inline: auto;
 }
-
 .site-header {
   padding: 32px 0 18px;
 }
@@ -88,7 +84,6 @@ body {
 .btn:hover {
   border-color: hsl(0 0% 100%/0.2);
 }
-
 .grid {
   --min: 260px;
   display: grid;
@@ -100,8 +95,6 @@ html.compact .grid {
   --min: 220px;
   gap: 12px;
 }
-
-/* Card inspired by the CodePen style, but clean CSS */
 .app-card {
   position: relative;
   display: grid;
@@ -126,8 +119,6 @@ html.compact .grid {
   box-shadow: 0 14px 40px hsl(0 0% 0%/0.35);
   border-color: hsl(0 0% 100%/0.2);
 }
-
-/* glossy sheen */
 .app-sheen {
   position: absolute;
   inset: -2px;
@@ -150,7 +141,6 @@ html.compact .grid {
 .app-card:hover .app-sheen {
   opacity: 1;
 }
-
 .app-icon {
   width: 64px;
   height: 64px;
@@ -174,7 +164,6 @@ html.compact .grid {
 .app-icon[data-fallback] {
   color: var(--text);
 }
-
 .app-meta {
   min-width: 0;
 }
@@ -208,20 +197,16 @@ html.compact .grid {
   background: hsl(0 0% 100%/0.08);
   border: 1px solid hsl(0 0% 100%/0.1);
 }
-
 .empty {
   text-align: center;
   color: var(--muted);
   padding: 2rem 0;
 }
-
 .site-footer {
   border-top: 1px solid hsl(0 0% 100%/0.08);
   padding: 18px 0 40px;
   color: var(--muted);
 }
-
-/* Accessibility & focus */
 .app-card:focus-visible,
 .input:focus-visible,
 .btn:focus-visible,

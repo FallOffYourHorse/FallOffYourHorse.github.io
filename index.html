@@ -4,12 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aria Belmonde</title>
+  <title>ariabelmonde • dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/dashboard.css">
-  <script defer src="js/main.js"></script>
+  <!-- External stylesheet (no inline styles) -->
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#0b0f1a">
+
+  <!-- App JS -->
+  <script defer src="/js/main.js"></script>
 </head>
 
 <body>
@@ -18,11 +28,10 @@
       <h1 class="brand">Thiha - DMIT2033 Placeholder</h1>
       <p class="tag">Quick launch dashboard</p>
       <div class="tools">
-        <input id="search" class="input" type="search" placeholder="Search links (try: jellyfin, arr)">
+        <input id="search" class="input" type="search" placeholder="Search links (try: jellyfin, arr, infra)">
         <select id="tagFilter" class="input select">
           <option value="">All tags</option>
         </select>
-        <button id="layoutToggle" class="btn" type="button" aria-pressed="false"><!-- Compact --></button>
       </div>
     </div>
   </header>
@@ -35,6 +44,7 @@
   <footer class="site-footer wrap">
     <small>© <span id="year"></span> ariabelmonde.ca • Press <kbd>/</kbd> to focus search</small>
   </footer>
+
 </body>
 
 </html>
