@@ -4,14 +4,7 @@ const cards = [
     url: "https://anime.ariabelmonde.ca",
     desc: "Media server (anime)",
     tags: ["media", "self-hosted"],
-    logo: "/assets/logos/jellyfin.svg",
-  },
-  {
-    title: "Jellyseerr",
-    url: "https://request.ariabelmonde.ca",
-    desc: "Media requests",
-    tags: ["media", "requests"],
-    initials: "JS",
+    logo: "/img/logos/jellyfin.avif",
   },
   {
     title: "Komga",
@@ -47,27 +40,6 @@ const cards = [
     desc: "Indexers",
     tags: ["arr", "automation"],
     initials: "P",
-  },
-  {
-    title: "Nginx Proxy Manager",
-    url: "https://npm.ariabelmonde.ca",
-    desc: "Reverse proxy",
-    tags: ["infra"],
-    initials: "NPM",
-  },
-  {
-    title: "UGREEN NAS",
-    url: "https://nas.ariabelmonde.ca",
-    desc: "NAS dashboard",
-    tags: ["infra"],
-    initials: "NAS",
-  },
-  {
-    title: "Discord Bot Dashboard",
-    url: "https://ariabelmonde.ca/discord",
-    desc: "Bot & tools",
-    tags: ["discord", "project"],
-    initials: "BOT",
   },
   {
     title: "GitHub",
