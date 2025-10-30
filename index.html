@@ -1,23 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thiha - DMIT2033 Placeholder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aria Belmonde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script defer src="js/main.js"></script>
 </head>
 
 <body>
-  <h1>Placeholder proof for DMIT2033 - Thiha</h1>
-  <ul>
-    <li><a href="http://anime.ariabelmonde.ca">Media Server</a></li>
-    <li><a href="http://manga.ariabelmonde.ca">Manga Server</a></li>
-    <h2>Admin Items</h2>
-    <li><a href="http://qb.ariabelmonde.ca">QB</a></li>
-    <li><a href="http://prowlarr.ariabelmonde.ca">Prowlarr</a></li>
-    <li><a href="http://sonarr.ariabelmonde.ca">Sonarr</a></li>
-    <li><a href="http://radarr.ariabelmonde.ca">Radarr</a></li>
-  </ul>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="brand">Thiha - DMIT2033 Placeholder</h1>
+      <p class="tag">Quick launch dashboard</p>
+      <div class="tools">
+        <input id="search" class="input" type="search" placeholder="Search links (try: jellyfin, arr, infra)">
+        <select id="tagFilter" class="input select">
+          <option value="">All tags</option>
+        </select>
+        <button id="layoutToggle" class="btn" type="button" aria-pressed="false">Compact</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="grid" class="grid"></section>
+    <div id="empty" class="empty" hidden>No results. Try a different search or tag.</div>
+  </main>
+
+  <footer class="site-footer wrap">
+    <small>© <span id="year"></span> ariabelmonde.ca • Press <kbd>/</kbd> to focus search</small>
+  </footer>
 </body>
 
 </html>
