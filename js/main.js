@@ -7,7 +7,7 @@ const cards = [
     url: "https://anime.ariabelmonde.ca",
     desc: "Media server (anime)",
     tags: ["media", "self-hosted"],
-    logo: "/img/logo/jellyfin.avif",
+    logo: "/img/logo/jellyfin.webp",
   },
   {
     title: "Komga",
