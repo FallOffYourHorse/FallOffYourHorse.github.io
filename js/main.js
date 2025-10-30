@@ -61,7 +61,7 @@ const $grid = document.getElementById("grid");
 const $empty = document.getElementById("empty");
 const $search = document.getElementById("search");
 const $tag = document.getElementById("tagFilter");
-const $layout = document.getElementById("layoutToggle");
+// const $layout = document.getElementById("layoutToggle");
 document.getElementById("year").textContent = new Date().getFullYear();
 
 function uniqTags(list) {
@@ -127,12 +127,12 @@ function render() {
   $empty.hidden = filtered.length > 0;
 }
 
-function toggleLayout() {
-  document.documentElement.classList.toggle("compact");
-  const on = document.documentElement.classList.contains("compact");
-  $layout.setAttribute("aria-pressed", on ? "true" : "false");
-  $layout.textContent = on ? "Comfortable" : "Compact";
-}
+// function toggleLayout() {
+//   document.documentElement.classList.toggle("compact");
+//   const on = document.documentElement.classList.contains("compact");
+//   $layout.setAttribute("aria-pressed", on ? "true" : "false");
+//   $layout.textContent = on ? "Comfortable" : "Compact";
+// }
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "/" && document.activeElement !== $search) {
@@ -142,7 +142,7 @@ document.addEventListener("keydown", (e) => {
 });
 $search.addEventListener("input", render);
 $tag.addEventListener("change", render);
-$layout.addEventListener("click", toggleLayout);
+// $layout.addEventListener("click", toggleLayout);
 
 buildTagFilter();
 render();
