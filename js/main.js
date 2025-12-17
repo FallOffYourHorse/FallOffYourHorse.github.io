@@ -91,8 +91,9 @@ function cardHTML(c) {
         c.initials || c.title.slice(0, 2)
       ).toUpperCase()}"></div>`;
   return `
-    <a class="app-card" href="${c.url}" target="_blank" rel="noopener">
+    <a class="app-card" href="${c.url}" target="_blank" rel="noopener"> 
       <span class="app-sheen" aria-hidden="true"></span>
+      ${c.featured ? `<span class="featured-badge">Featured</span>` : ""}
       ${icon}
       <div class="app-meta">
         <h2 class="app-title">${c.title}</h2>
