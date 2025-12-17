@@ -8,6 +8,7 @@ const cards = [
     desc: "Media server (anime)",
     tags: ["media", "self-hosted"],
     logo: "/img/logo/jellyfin.webp",
+    featured: true,
   },
   {
     title: "Komga",
